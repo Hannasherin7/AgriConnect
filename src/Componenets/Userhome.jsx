@@ -21,7 +21,7 @@ const Userhome = () => {
     };
 
     const handleProfileClick = () => {
-        navigate('/own'); // Navigate to UserDetails page
+        navigate('/own/:id'); // Navigate to UserDetails page
     };
 
     return (
@@ -68,8 +68,8 @@ const Userhome = () => {
                 <div style={styles.navItem}>
                     <Link to="/complaintadd" style={styles.navButton}>Submit Complaint</Link>
                 </div>
-                {/* Profile Icon */}
-                <div style={styles.navItem}>
+                {/* Profile Icon aligned to the right */}
+                <div style={styles.profileContainer}>
                     <FaUserCircle 
                         style={styles.profileIcon} 
                         onClick={handleProfileClick} // Handle profile icon click
@@ -106,6 +106,7 @@ const styles = {
         backgroundColor: 'black',
         display: 'flex',
         padding: '10px',
+        justifyContent: 'space-between', // Space between items to push profile icon to the right
     },
     navItem: {
         position: 'relative',
@@ -177,6 +178,11 @@ const styles = {
         margin: '20px auto',
         maxWidth: '80%',
         zIndex: 1,
+    },
+    profileContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: 'auto', // Align the profile icon to the right
     },
     profileIcon: {
         color: 'white',

@@ -24,7 +24,6 @@ import Adminhome from './Componenets/Adminhome';
 import { Rec } from './Componenets/Rec';
 import { Tip } from './Componenets/Tip';
 import { Product } from './Componenets/Product';
-import ViewUser from './Componenets/Viewuser';
 import Viewuser from './Componenets/Viewuser';
 import DeleteUser from './Componenets/DeleteUser';
 import OrderDetails from './Componenets/OrderDetails';
@@ -32,6 +31,11 @@ import { AddComplaint } from './Componenets/AddComplaint';
 import { ViewComplaint } from './Componenets/ViewComplaint';
 import Vedeo from './Componenets/Vedeo';
 import UserDetails from './Componenets/UserDetails';
+import UserOrders from './Componenets/UserOrders';
+import SoldProducts from './Componenets/SoldProducts';
+
+import ReceivedOrders from './Componenets/ReceivedOrders';
+
 
 
 function App() {
@@ -67,7 +71,14 @@ function App() {
     <Route path='/complaintadd'element={(<AddComplaint/>)}/>
     <Route path='/complaints'element={(<ViewComplaint/>)}/>
     <Route path='/video'element={(<Vedeo/>)}/>
-    <Route path='/own'element={(<UserDetails/>)}/>
+    <Route path='/own/:id'element={(<UserDetails/>)}/>
+    <Route path='/uorder'element={(<UserOrders/>)}/>
+    <Route path='/soldproducts/:userId'element={(<SoldProducts/>)}/>
+    <Route path='/rcor'element={(<ReceivedOrders/>)}/>
+   
+
+
+
     </Routes>
     </BrowserRouter>
   );

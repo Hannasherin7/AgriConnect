@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 export const AddProduct = () => {
     const [data, setData] = useState({
         image: "",
+        email: "", // Email field for the seller
         pname: "",
         pdescription: "",
         price: "",
@@ -19,8 +20,8 @@ export const AddProduct = () => {
 
     const readValue = () => {
         // Validate form data before submission
-        const { image, pname, pdescription, price, quantity, category } = data;
-        if (!image || !pname || !pdescription || !price || !quantity || !category) {
+        const { image, email, pname, pdescription, price, quantity, category } = data;
+        if (!image || !email || !pname || !pdescription || !price || !quantity || !category) {
             setMessage("Please fill in all fields.");
             return;
         }
@@ -31,7 +32,7 @@ export const AddProduct = () => {
                 console.log(response.data);
                 if (response.data.status === "success") {
                     setMessage("Product successfully added");
-                    setData({ image: "", pname: "", pdescription: "", price: "", quantity: "", category: "" }); // Reset form
+                    setData({ image: "", email: "", pname: "", pdescription: "", price: "", quantity: "", category: "" }); // Reset form
                 } else {
                     setMessage("Error adding product");
                 }
@@ -44,7 +45,7 @@ export const AddProduct = () => {
 
     // Updated page style for full-screen background
     const pageStyle = {
-        backgroundImage: "url('https://wallpapers.com/images/hd/aesthetic-astronaut-flower-field-laptop-4ndqwiauwee5jpze.jpg')",
+        backgroundImage: "url('https://png.pngtree.com/background/20230615/original/pngtree-hay-bale-encircled-by-trees-in-a-field-picture-image_3545761.jpg')",
         backgroundSize: 'cover', // Cover the entire area
         backgroundPosition: 'center', // Center the background image
         backgroundRepeat: 'no-repeat', // Prevent repeating
@@ -103,7 +104,9 @@ export const AddProduct = () => {
                         <div className="row">
                             {Object.keys(data).map((key) => (
                                 <div className="col-sm-6" key={key}>
-                                    <label className="form-label">{key === 'pname' ? 'Product Name' : key.charAt(0).toUpperCase() + key.slice(1)}</label>
+                                    <label className="form-label">
+                                        {key === 'pname' ? 'Product Name' : key === 'email' ? 'Seller Email' : key.charAt(0).toUpperCase() + key.slice(1)}
+                                    </label>
                                     <input 
                                         type={key === 'price' || key === 'quantity' ? 'number' : 'text'} 
                                         className="form-control" 

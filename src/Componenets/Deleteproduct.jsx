@@ -37,7 +37,7 @@ export const Deleteproduct = () => {
     };
 
     const pageStyle = {
-        backgroundImage: "url('https://wallpapers.com/images/hd/aesthetic-astronaut-flower-field-laptop-4ndqwiauwee5jpze.jpg')",
+        backgroundImage: "url('https://png.pngtree.com/background/20230615/original/pngtree-hay-bale-encircled-by-trees-in-a-field-picture-image_3545761.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '100vh', // Full viewport height
@@ -100,7 +100,7 @@ export const Deleteproduct = () => {
                                         <img src={value.image} alt={value.pname} />
                                         <div className="card-body">
                                             <p className="card-text">Product Name: {value.pname}</p>
-                                            <p className="card-text">Description: {value.pdiscription}</p>
+                                            
                                             <p className="card-text">Price: {value.price}</p>
                                             <p>
                                                 <button 

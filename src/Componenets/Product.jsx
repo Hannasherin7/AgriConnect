@@ -89,6 +89,7 @@ export const Product = () => {
                                         <img src={value.image} alt={value.pname} />
                                         <div className="card-body">
                                             <p className="card-text">Product Name: {value.pname}</p>
+                                            <p className="card-text">Seller Email: {value.email}</p>
                                             <p className="card-text">Product Description: {value.pdescription}</p>
                                             <p className="card-text">Price: {value.price}</p>
                                         </div>

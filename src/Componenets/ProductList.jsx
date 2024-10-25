@@ -16,6 +16,9 @@ export const ProductList = () => {
     const [totalAmount, setTotalAmount] = useState(0);
     const [searchTerm, setSearchTerm] = useState('');
 
+    // Get logged-in user's email
+    const loggedInUserEmail = localStorage.getItem('useremail');
+
     useEffect(() => {
         // Fetch products from the backend
         axios.get("http://localhost:7000/viewpro")
@@ -34,9 +37,7 @@ export const ProductList = () => {
     }, [orderData.orderQuantity, selectedProduct]);
 
     const placeOrder = () => {
-        // Check if all fields are filled
         if (orderData.name && orderData.email && orderData.phone && orderData.address && orderData.pincode && orderData.paymentMethod) {
-            // Make a POST request to place the order
             axios.post("http://localhost:7000/order", {
                 ...orderData,
                 productId: selectedProduct._id
@@ -55,21 +56,21 @@ export const ProductList = () => {
         }
     };
 
-    // Filter products based on search term
+    // Filter products based on search term and exclude products sold by logged-in user
     const filteredProducts = products.filter(product =>
-        product.pname.toLowerCase().includes(searchTerm.toLowerCase())
+        product.pname.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        product.email !== loggedInUserEmail // Exclude products sold by logged-in user
     );
 
     return (
         <div style={{ 
-            backgroundImage: "url('https://wallpapers.com/images/hd/aesthetic-astronaut-flower-field-laptop-4ndqwiauwee5jpze.jpg')", 
+            backgroundImage: "url('https://png.pngtree.com/background/20230615/original/pngtree-hay-bale-encircled-by-trees-in-a-field-picture-image_3545761.jpg')", 
             backgroundSize: 'cover', 
             height: '100vh', 
             padding: '20px' 
         }}>
             <h1 style={{ color: 'black', textAlign: 'center' }}>Product List</h1>
 
-            {/* Search Bar */}
             <input 
                 type="text" 
                 placeholder="Search for products..." 
@@ -103,7 +104,12 @@ export const ProductList = () => {
                                 <p style={{ color: 'black' }}>{product.pdescription}</p>
                                 <p style={{ color: 'black' }}>Price: ${product.price}</p>
                                 <p style={{ color: 'black' }}>Stock: {product.quantity}</p>
-                                <button onClick={() => setSelectedProduct(product)} className="btn btn-primary">Buy Now</button>
+                                
+                                {product.quantity < 1 ? (
+                                    <button disabled className="btn btn-danger">Out of Stock</button>
+                                ) : (
+                                    <button onClick={() => setSelectedProduct(product)} className="btn btn-primary">Buy Now</button>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -127,7 +133,6 @@ export const ProductList = () => {
                                 <p style={{ color: 'black' }}>Product: {selectedProduct.pname}</p>
                                 <p style={{ color: 'black' }}>Price: ${selectedProduct.price}</p>
 
-                                {/* Order Data Inputs */}
                                 <input type="text" name="name" placeholder="Name" value={orderData.name} onChange={handleInputChange} className="form-control mb-3" />
                                 <input type="email" name="email" placeholder="Email" value={orderData.email} onChange={handleInputChange} className="form-control mb-3" />
                                 <input type="text" name="phone" placeholder="Phone" value={orderData.phone} onChange={handleInputChange} className="form-control mb-3" />
