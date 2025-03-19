@@ -23,7 +23,7 @@ export const AddComplaint = () => {
         }
 
         console.log(complaintData);
-        axios.post("http://localhost:7000/addcom", complaintData)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/addcom", complaintData)
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

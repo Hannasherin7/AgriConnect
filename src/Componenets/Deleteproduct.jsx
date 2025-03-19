@@ -12,7 +12,7 @@ export const Deleteproduct = () => {
 
     const readVlue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/searchpro", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/searchpro", data)
             .then((response) => {
                 setResult(response.data);
             })
@@ -25,7 +25,7 @@ export const Deleteproduct = () => {
     const deleteValue = (id) => {
         console.log(data);
         let input = { "_id": id };
-        axios.post("http://localhost:7000/deletepro", input)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/deletepro", input)
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

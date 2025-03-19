@@ -21,7 +21,7 @@ export const ProductList = () => {
 
     useEffect(() => {
         // Fetch products from the backend
-        axios.get("http://localhost:7000/viewpro")
+        axios.get("https://agriconnect-backend-lekh.onrender.com/viewpro")
             .then((response) => setProducts(response.data))
             .catch((error) => console.error("Error fetching products:", error));
     }, []);
@@ -38,7 +38,7 @@ export const ProductList = () => {
 
     const placeOrder = () => {
         if (orderData.name && orderData.email && orderData.phone && orderData.address && orderData.pincode && orderData.paymentMethod) {
-            axios.post("http://localhost:7000/order", {
+            axios.post("https://agriconnect-backend-lekh.onrender.com/order", {
                 ...orderData,
                 productId: selectedProduct._id
             })

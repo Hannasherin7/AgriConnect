@@ -15,7 +15,7 @@ export const Searchrec = () => {
 
     const readVlue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/searchrec", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/searchrec", data)
             .then((response) => {
                 setResult(response.data);
             })

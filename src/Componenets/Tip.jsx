@@ -8,7 +8,7 @@ export const Tip = () => {
     const navigate = useNavigate(); // Initialize the useNavigate hook
 
     const fetchData = () => {
-        axios.get("http://localhost:7000/viewtips")
+        axios.get("https://agriconnect-backend-lekh.onrender.com/viewtips")
             .then((response) => {
                 changeData(response.data);
             })

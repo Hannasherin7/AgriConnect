@@ -8,7 +8,7 @@ export const Rec = () => {
     const navigate = useNavigate(); // Initialize the useNavigate hook
 
     const fetchData = () => {
-        axios.get("http://localhost:7000/viewrec")
+        axios.get("https://agriconnect-backend-lekh.onrender.com/viewrec")
             .then((response) => {
                 changeData(response.data);
             })

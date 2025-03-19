@@ -31,7 +31,7 @@ const Userlogin = () => {
 
         // For regular users, proceed with the API call
         try {
-            const response = await axios.post("http://localhost:7000/login", data);
+            const response = await axios.post("https://agriconnect-backend-lekh.onrender.com/login", data);
             if (response.data.status === "Success") {
                 sessionStorage.setItem("token", response.data.token);
                 sessionStorage.setItem("userid", response.data.userid);

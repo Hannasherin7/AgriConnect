@@ -7,7 +7,7 @@ export const Product = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const fetchData = () => {
-        axios.get("http://localhost:7000/viewpro")
+        axios.get("https://agriconnect-backend-lekh.onrender.com/viewpro")
             .then((response) => {
                 changeData(response.data);
             })

@@ -14,7 +14,7 @@ const UserDetails = () => {
 
     const fetchUserDetails = async () => {
         try {
-            const response = await axios.get('http://localhost:7000/viewsign');
+            const response = await axios.get('https://agriconnect-backend-lekh.onrender.com/viewsign');
             const foundUser = response.data.find(u => u._id === userId);
             if (foundUser) {
                 setUser(foundUser);

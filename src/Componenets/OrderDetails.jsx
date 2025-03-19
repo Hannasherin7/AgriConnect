@@ -8,7 +8,7 @@ const OrderDetails = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:7000/vieworders');
+                const response = await axios.get('https://agriconnect-backend-lekh.onrender.com/vieworders');
                 setOrders(response.data);
             } catch (err) {
                 console.error("Error fetching orders:", err);

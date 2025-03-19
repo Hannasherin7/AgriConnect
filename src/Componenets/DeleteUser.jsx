@@ -9,7 +9,7 @@ const DeleteUser = () => {
     const handleSearch = async () => {
         try {
             console.log("Searching for user with ID:", userId); // Debug log
-            const response = await axios.get(`http://localhost:7000/viewsign/${userId}`);
+            const response = await axios.get(`https://agriconnect-backend-lekh.onrender.com/viewsign/${userId}`);
             console.log("User data received:", response.data); // Debug log
             setUser(response.data);
             setError('');
@@ -22,7 +22,7 @@ const DeleteUser = () => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:7000/deleteuser/${userId}`);
+            await axios.delete(`https://agriconnect-backend-lekh.onrender.com/deleteuser/${userId}`);
             setUser(null);
             setUserId(''); // Clear input after deletion
             setError('');

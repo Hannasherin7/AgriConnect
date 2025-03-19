@@ -5,7 +5,7 @@ export const Viewproduct = () => {
     const [data, changeData] = useState([]);
 
     const fetchData = () => {
-        axios.get("http://localhost:7000/viewpro")
+        axios.get("https://agriconnect-backend-lekh.onrender.com/viewpro")
             .then((response) => {
                 changeData(response.data);
             })

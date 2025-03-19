@@ -17,7 +17,7 @@ const SoldProducts = () => {
             }
 
             try {
-                const response = await axios.get('http://localhost:7000/viewpro'); // Fetch all products
+                const response = await axios.get('https://agriconnect-backend-lekh.onrender.com/viewpro'); // Fetch all products
                 console.log("API Response:", response.data);
 
                 // Check if the response has data

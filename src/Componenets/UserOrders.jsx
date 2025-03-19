@@ -17,7 +17,7 @@ const UserOrders = () => {
             }
 
             try {
-                const response = await axios.get('http://localhost:7000/vieworders'); // Fetch all orders
+                const response = await axios.get('https://agriconnect-backend-lekh.onrender.com/vieworders'); // Fetch all orders
                 console.log("API Response:", response.data);
 
                 // Filter orders for the logged-in user

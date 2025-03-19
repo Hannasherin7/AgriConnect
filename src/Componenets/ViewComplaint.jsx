@@ -6,7 +6,7 @@ export const ViewComplaint = () => {
 
     // Fetch complaints when component mounts
     useEffect(() => {
-        axios.get("http://localhost:7000/viewcom")
+        axios.get("https://agriconnect-backend-lekh.onrender.com/viewcom")
             .then((response) => {
                 setComplaints(response.data);
             })

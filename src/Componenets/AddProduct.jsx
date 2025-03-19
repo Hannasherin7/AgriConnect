@@ -27,7 +27,7 @@ export const AddProduct = () => {
         }
 
         console.log(data);
-        axios.post("http://localhost:7000/addpro", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/addpro", data)
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

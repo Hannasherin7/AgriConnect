@@ -16,7 +16,7 @@ export const Addrec = () => {
 
     const readVlue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/addrec", data).then(
+        axios.post("https://agriconnect-backend-lekh.onrender.com/addrec", data).then(
             (response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

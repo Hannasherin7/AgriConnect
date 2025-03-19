@@ -23,6 +23,9 @@ const Adminhome = () => {
                 <Link to="/complaints" style={styles.navItem}>
                     <button style={styles.navButton}>Complaints</button>
                 </Link>
+                <Link to="/file" style={styles.navItem}>
+                    <button style={styles.navButton}>Certificates</button>
+                </Link>
             </div>
 
             {/* Link to Home below the navbar */}

@@ -14,7 +14,7 @@ export const Deltip = () => {
 
     const readValue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/searchtip", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/searchtip", data)
             .then((response) => {
                 setResult(response.data);
             })
@@ -27,7 +27,7 @@ export const Deltip = () => {
     const deleteValue = (id) => {
         console.log(id);
         let input = { "_id": id };
-        axios.post("http://localhost:7000/deletetip", input)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/deletetip", input)
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

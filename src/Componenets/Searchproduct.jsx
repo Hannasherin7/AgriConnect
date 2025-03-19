@@ -11,7 +11,7 @@ export const Searchproduct = () => {
 
     const readVlue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/searchpro", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/searchpro", data)
             .then((response) => {
                 setResult(response.data);
             })

@@ -14,7 +14,7 @@ export const Sertip = () => {
 
     const readValue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/searchtip", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/searchtip", data)
             .then((response) => {
                 setResult(response.data);
             })

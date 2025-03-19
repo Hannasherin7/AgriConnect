@@ -16,7 +16,7 @@ const ReceivedOrders = () => {
             }
 
             try {
-                const response = await axios.get(`http://localhost:7000/viewORD?email=${userEmail}`);
+                const response = await axios.get(`https://agriconnect-backend-lekh.onrender.com/viewORD?email=${userEmail}`);
                 console.log("API Response:", response.data);
 
                 if (response.data.length > 0) {

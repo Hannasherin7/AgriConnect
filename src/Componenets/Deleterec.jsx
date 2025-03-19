@@ -15,7 +15,7 @@ export const Deleterec = () => {
     const readValue = () => {
         console.log(data);
         // Ensure you're using the correct endpoint for searching recipes
-        axios.post("http://localhost:7000/searchrec", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/searchrec", data)
             .then((response) => {
                 setResult(response.data);
             })
@@ -28,7 +28,7 @@ export const Deleterec = () => {
     const deleteValue = (id) => {
         console.log(id);
         let input = { "_id": id };
-        axios.post("http://localhost:7000/deleterec", input)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/deleterec", input)
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

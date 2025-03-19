@@ -35,6 +35,14 @@ import UserOrders from './Componenets/UserOrders';
 import SoldProducts from './Componenets/SoldProducts';
 
 import ReceivedOrders from './Componenets/ReceivedOrders';
+import File from './Componenets/File';
+import FileList from './Componenets/FileList';
+
+import ConfirmFarmer from './Componenets/ConfirmFarmer';
+import Fconfirmation from './Componenets/Fconfirmation';
+
+
+
 
 
 
@@ -75,6 +83,12 @@ function App() {
     <Route path='/uorder'element={(<UserOrders/>)}/>
     <Route path='/soldproducts/:userId'element={(<SoldProducts/>)}/>
     <Route path='/rcor'element={(<ReceivedOrders/>)}/>
+    <Route path='/upld'element={(<File/>)}/>
+    <Route path='/file'element={(<FileList/>)}/>
+    <Route path='/frmr'element={(<Fconfirmation/>)}/>
+    <Route path='/cfr'element={(<ConfirmFarmer/>)}/>
+    
+    
    
 
 

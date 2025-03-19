@@ -14,7 +14,7 @@ export const Addtip = () => {
 
     const readValue = () => {
         console.log(data);
-        axios.post("http://localhost:7000/addtip", data)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/addtip", data)
             .then((response) => {
                 console.log(response.data);
                 if (response.data.status === "success") {

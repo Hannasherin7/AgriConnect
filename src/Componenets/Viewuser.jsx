@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const Viewuser = () => {
     const [users, setUsers] = useState([]);
+    const [searchEmail, setSearchEmail] = useState(""); // State for search input
 
     const deleteUser = (_id) => {
         let input = { "_id": _id };
-        axios.post("http://localhost:7000/deleteuser", input)
+        axios.post("https://agriconnect-backend-lekh.onrender.com/deleteuser", input)
             .then((response) => {
                 console.log("Delete response:", response.data); // Log the response
                 if (response.data.status === "success") {
@@ -25,7 +25,7 @@ const Viewuser = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get("http://localhost:7000/viewsign");
+            const response = await axios.get("https://agriconnect-backend-lekh.onrender.com/viewsign");
             setUsers(response.data);
         } catch (error) {
             console.error("Error fetching users:", error);
@@ -37,9 +37,29 @@ const Viewuser = () => {
         fetchUsers();
     }, []);
 
+    // Function to handle search input change
+    const handleSearchChange = (event) => {
+        setSearchEmail(event.target.value);
+    };
+
+    // Filter users by email
+    const filteredUsers = users.filter(user =>
+        user.email.toLowerCase().includes(searchEmail.toLowerCase())
+    );
+
     return (
         <div style={styles.pageStyle}>
             <h1 style={styles.title}>View All Users</h1>
+            
+            {/* Search input for filtering by email */}
+            <input 
+                type="text" 
+                placeholder="Search by email" 
+                value={searchEmail} 
+                onChange={handleSearchChange} 
+                style={styles.searchInput} 
+            />
+
             <div style={styles.tableContainer}>
                 <table style={styles.table}>
                     <thead>
@@ -53,7 +73,7 @@ const Viewuser = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user) => (
+                        {filteredUsers.map((user) => (
                             <tr key={user._id}>
                                 <td style={styles.tableData}>{user.name}</td>
                                 <td style={styles.tableData}>{user.email}</td>
@@ -93,6 +113,16 @@ const styles = {
     title: {
         textAlign: 'center',
         margin: '20px 0',
+    },
+    searchInput: {
+        marginBottom: '20px',
+        padding: '10px',
+        borderRadius: '5px',
+        border: '1px solid rgba(255, 255, 255, 0.5)',
+        width: '80%',
+        maxWidth: '400px',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        color: 'white',
     },
     tableContainer: {
         overflowX: 'auto',
